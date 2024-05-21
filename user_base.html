@@ -9,7 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <style>
-    /* Add your custom CSS styles here */
+
   </style>
 </head>
 <body>
@@ -32,7 +32,7 @@
               <input class="navbar-input col-xs-11" value="{% if search_text %}{{ search_text }}{% endif %}" type="search" placeholder="Search for Products, Brands and more" name="query" id="query">
               <button class="navbar-button col-xs-1" type="submit">
                 <svg width="15px" height="15px">
-                  <!-- Add your SVG path data here -->
+                 
                 </svg>
               </button>
             </div>
@@ -41,7 +41,7 @@
         <div class="cart1 largenav col-sm-2">
           <a class="cart-button" href="/cart">
             <svg class="cart-svg" width="16" height="16" viewBox="0 0 16 16">
-              <!-- Add your SVG path data here -->
+   
             </svg>
             Cart <span class="item-number">{{ product_count_in_cart }}</span>
           </a>
@@ -49,11 +49,11 @@
       </div>
     </div>
   </div>
-  <!-- content start-->
+
   {% block content %}
 
   {% endblock content %}
-  <!-- content end-->
+
   <br><br><br>
   <footer>
     <br>
