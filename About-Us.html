@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load stat %}
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -13,16 +13,16 @@
 </head>
 <body style="background-color:#f7f7f7;">
   {%if request.user.is_authenticated%}
-    {% include "ecom/customer_navbar.html" %}
+    {% include "/customer_navbar.html" %}
   {%else%}
-    {% include "ecom/navbar.html" %}
+    {% include "navbar.html" %}
   {%endif%}
   <br><br><br>
 <h3 style="text-align:center;"> At EcoHero, we believe that everyone has a role to play in protecting the environment. That's why we're committed to providing our customers with eco-friendly products that are both good for the planet and good for your wallet. </h3>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </section>
 
-  {% include "ecom/footer.html" %}
+  {% include "footer.html" %}
 </body>
 
 </html>
