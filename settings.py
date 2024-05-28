@@ -49,7 +49,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ecomm.wsgi.application'
+ASGI_APPLICATION = 'ecomm.asgi.application'
 
 DATABASES = {
     'default': {
