@@ -1,0 +1,91 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" integrity="sha384-rvzC2s3Uz1dcSY5+Lwf1vClnkVuLFuhDs7CWqPIKzI1m7gqAvcdHWhXug4PeWHA" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" integrity="sha384-ApTtmkcuTPbsq74NJdpz4zxrHWjDUOku1qJegUbuD6VMn9FN/r4qKHSnOxRmLQ8" crossorigin="anonymous"></script>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+
+    .panel-heading h6 {
+      text-align: center;
+    }
+
+    .row {
+      margin: 100px;
+    }
+
+    .float {
+      position: fixed;
+      width: 70px;
+      height: 70px;
+      bottom: 60px;
+      right: 60px;
+      background-color: #428bca;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      box-shadow: 5px 5px 5px #505050;
+    }
+
+    .my-float {
+      margin-top: 22px;
+    }
+
+    .fa {
+      padding: 0.5em;
+    }
+  </style>
+</head>
+
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h6 class="panel-title">Total Products</h6>
+    </div>
+    <table class="table table-hover table-bordered" id="dev-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in products %}
+          <tr>
+            <td>{{ p.name }}</td>
+            <td><img src="{% static p.product_image.url %}" alt="Profile Pic" height="40" width="40" /></td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.description }}</td>
+            <td>
+              <a class="btn btn-primary btn-xs" href="{% url 'update-product' p.id %}">
+                <span class="glyphicon glyphicon-edit"></span>
+              </a>
+              <a class="btn btn-danger btn-xs" href="{% url 'delete-product' p.id %}">
+                <span class="glyphicon glyphicon-trash"></span>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        {% if not products %}
+          <tr>
+            <td colspan="5" class="text-center">No Products Found</td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+</div>
+<a href="/admin-add-product" class="float">
+  <i class="fa fa-plus my-float"></i>
+</a>
+
+{% endblock content %}
