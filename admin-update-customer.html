@@ -1,1 +1,85 @@
 
+
+{% extends 'admin_base.html' %}
+{% load widget_tweaks %}
+
+<style media="screen">
+  a:link {
+    text-decoration: none;
+  }
+ .note {
+    text-align: center;
+    height: 80px;
+    background: #0F2027;
+    color: #fff;
+    font-weight: bold;
+    line-height: 80px;
+  }
+ .form-content {
+    padding: 5%;
+    border: 1px solid #ced4da;
+    margin-bottom: 2%;
+  }
+ .form-control {
+    border-radius: 1.5rem;
+  }
+ .btnSubmit {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 1%;
+    width: 20%;
+    cursor: pointer;
+    background: #005d94;
+    color: #fff;
+  }
+ .menu {
+    top: 50px;
+  }
+</style>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="container register-form">
+    <div class="form">
+      <div class="note">
+        <p>Update Customer Details</p>
+      </div>
+      <div class="form-content">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              {{ userForm.first_name|add_class:"form-control"|attr:"placeholder:First Name" }}
+            </div>
+            <div class="form-group">
+              {{ userForm.username|add_class:"form-control"|attr:"placeholder:Username" }}
+            </div>
+            <div class="form-group">
+              {{ customerForm.mobile|add_class:"form-control"|attr:"placeholder:Contact" }}
+            </div>
+            <div class="form-group">
+              {{ customerForm.profile_pic|add_class:"form-control"|attr:"placeholder:Profile Picture" }}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              {{ userForm.last_name|add_class:"form-control"|attr:"placeholder:Last Name" }}
+            </div>
+            <div class="form-group">
+              {{ userForm.password|add_class:"form-control"|attr:"placeholder:Password" }}
+            </div>
+            <div class="form-group">
+              {{ customerForm.address|add_class:"form-control"|attr:"placeholder:Address" }}
+            </div>
+          </div>
+        </div>
+        <div>
+          <center><button type="submit" class="btnSubmit">Update</button></center>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
