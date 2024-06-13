@@ -1,0 +1,90 @@
+Open In Editor
+Edit
+Copy code
+1{% extends 'ecom/admin_base.html' %}
+2{% load widget_tweaks %}
+3
+4{% block content %}
+5  <style media="screen">
+6    a:link {
+7      text-decoration: none;
+8    }
+9    .note {
+10      text-align: center;
+11      height: 80px;
+12      background: #0F2027;
+13      color: #fff;
+14      font-weight: bold;
+15      line-height: 80px;
+16    }
+17    .form-content {
+18      padding: 5%;
+19      border: 1px solid #ced4da;
+20      margin-bottom: 2%;
+21    }
+22    .form-control {
+23      border-radius: 1.5rem;
+24    }
+25    .btnSubmit {
+26      border: none;
+27      border-radius: 1.5rem;
+28      padding: 1%;
+29      width: 20%;
+30      cursor: pointer;
+31      background: #005d94;
+32      color: #fff;
+33    }
+34    .menu {
+35      top: 50px;
+36    }
+37  </style>
+38
+39  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+40  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+41  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+42
+43  <br><br><br><br><br><br>
+44
+45  <form method="post" enctype="multipart/form-data">
+46    {% csrf_token %}
+47    <div class="container register-form">
+48      <div class="form">
+49        <div class="note">
+50          <p>Update Customer Details</p>
+51        </div>
+52        <div class="form-content">
+53          <div class="row">
+54            <div class="col-md-6">
+55              <div class="form-group">
+56                {{ userForm.first_name|add_class:"form-control"|attr:"placeholder:First Name" }}
+57              </div>
+58              <div class="form-group">
+59                {{ userForm.username|add_class:"form-control"|attr:"placeholder:Username" }}
+60              </div>
+61              <div class="form-group">
+62                {{ customerForm.mobile|add_class:"form-control"|attr:"placeholder:Contact" }}
+63              </div>
+64              <div class="form-group">
+65                {{ customerForm.profile_pic|add_class:"form-control"|attr:"placeholder:Profile Picture" }}
+66              </div>
+67            </div>
+68            <div class="col-md-6">
+69              <div class="form-group">
+70                {{ userForm.last_name|add_class:"form-control"|attr:"placeholder:Last Name" }}
+71              </div>
+72              <div class="form-group">
+73                {{ userForm.password|add_class:"form-control"|attr:"placeholder:Password" }}
+74              </div>
+75              <div class="form-group">
+76                {{ customerForm.address|add_class:"form-control"|attr:"placeholder:Address" }}
+77              </div>
+78            </div>
+79          </div>
+80          <div>
+81            <center><button type="submit" class="btnSubmit">Update</button></center>
+82          </div>
+83        </div>
+84      </div>
+85    </div>
+86  </form>
+87{% endblock content %}
